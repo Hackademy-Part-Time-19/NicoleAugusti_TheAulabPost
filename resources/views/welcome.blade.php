@@ -7,5 +7,4 @@
         </h1>
     </div>
 </div>
-
 </x-layout>
