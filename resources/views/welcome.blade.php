@@ -7,4 +7,10 @@
         </h1>
     </div>
 </div>
+@if (session('message'))
+    <div class="alert alert-succes text-center">
+        {{ session('message') }}
+    </div>
+
+@endif
 </x-layout>
