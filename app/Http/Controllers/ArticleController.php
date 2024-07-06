@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,14 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles= Article::orderBy('created_at','desc')->get();
+        return view ('article.index', compact('articles'));
+    }
+
+    public function byCategory(Category $category)
+    {
+        $articles=$category->articles()->orderby('created-at', 'desc')->get();
+        return view('article.by_category', compact('category','articles'));
     }
 
     /**
@@ -47,9 +55,11 @@ class ArticleController extends Controller
             'subtitle'=> $request-> subtitle,
             'body'=> $request-> body,
             'image'=> $request-> file('image')->store ('public/images'),
-            'category_id'=> $request-> category,
             'user_id'=> Auth::user()->id,
+            'category_id'=> $request-> category,
         ]);
+
+        return redirect (route('homepage'))->with('message', 'Articolo creato con succeso');
     }
 
     /**
@@ -57,7 +67,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view ('article.show', compact('article'));
     }
 
     /**

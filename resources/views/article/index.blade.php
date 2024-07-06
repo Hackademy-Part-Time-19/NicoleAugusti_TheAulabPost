@@ -3,15 +3,10 @@
 <div class= "container-fluid p-5 bg-info text-center text-white">
     <div class= "raw justify-content-center">
         <h1 class= "display-1">
-            The Aulab Post
+            Tutti gli articoli
         </h1>
     </div>
 </div>
-@if (session('message'))
-    <div class="alert alert-succes text-center">
-        {{ session('message') }}
-    </div>
-@endif
 <div class="container my-5">
     <div class=" row justify-content-center">
         @foreach ($articles as $article)
@@ -27,6 +22,7 @@
                 urlCategory="{{route('article.by_Category' , ['category' => $article->category->id])}}"
             />
         </div>
+        
         @endforeach
     </div>
 </div>

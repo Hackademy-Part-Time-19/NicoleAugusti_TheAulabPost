@@ -3,7 +3,7 @@
 <div class= "container-fluid p-5 bg-info text-center text-white">
     <div class= "raw justify-content-center">
         <h1 class= "display-1">
-            The Aulab Post
+            Categoria: {{ $category->name }}
         </h1>
     </div>
 </div>
