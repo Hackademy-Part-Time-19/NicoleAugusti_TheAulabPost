@@ -20,5 +20,5 @@ Route::get('/articles/create', [ArticleController::class ,'create'])->name('arti
 Route::post('/article/store' , [ArticleController::class , 'store'])->name('article.store');
 Route::get('/article/index' , [ArticleController::class ,'index'])->name('article.index');
 Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
-Route::get('/article/category/{category}', [ArticleController::class ,'byCategory'])->name('article.by_Category');
-
+Route::get('/article/category/{category}', [ArticleController::class ,'byCategory'])->name('article.byCategory');
+Route::get('/article/user/{user}', [ArticleController::class ,'byUser'])->name('article.byUser');

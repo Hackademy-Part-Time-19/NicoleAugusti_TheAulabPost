@@ -1,6 +1,6 @@
 <x-layout>
     <div class="container-fluid p-5 bg-info text-center text-white">
-        <div class="row justift-content-center">
+        <div class="row justify-content-center">
             <h1 class="display-1">
                 Inserisci un articolo
             </h1>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Immagine:</label>
-                        <input type="file" name="image" class="form-control" id="image"> 
+                        <input type="file" name="image" class="form-control" id="image" value="{{ old('image') }}"> 
                     </div>
                     <div class="mb-3">
                         <label for="category" class="form-label">Categoria:</label>
@@ -45,7 +45,7 @@
                         <label for="body" class="form-label">Corpo del testo:</label>
                         <textarea name="body" id="body" cols="30" rows="7" class="form-control">{{ old('body') }}</textarea>
                     </div>
-                    <div class="mt-2 d-flex justift-content-center">
+                    <div class="mt-2 d-flex justify-content-center">
                         <button class="btn btn-info text-white">Inserisci un articolo</button>
                     </div>
                 </form>

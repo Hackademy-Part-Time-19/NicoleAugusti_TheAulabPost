@@ -8,7 +8,7 @@
     </div>
 </div>
 @if (session('message'))
-    <div class="alert alert-succes text-center">
+    <div class="alert alert-success text-center">
         {{ session('message') }}
     </div>
 @endif
@@ -24,7 +24,8 @@
                 data="{{ $article->created_at->format('d/m/Y') }}"
                 user="{{ $article->user->name }}"
                 url="{{ route('article.show', compact('article'))}}"
-                urlCategory="{{route('article.by_Category' , ['category' => $article->category->id])}}"
+                urlCategory="{{ route('article.byCategory' , ['category' => $article->category->id]) }}"
+                urlAutore="{{ route('article.byUser' , ['user' => $article->user->id]) }}"
             />
         </div>
         @endforeach

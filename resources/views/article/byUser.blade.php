@@ -3,7 +3,7 @@
 <div class= "container-fluid p-5 bg-info text-center text-white">
     <div class= "raw justify-content-center">
         <h1 class= "display-1">
-            Categoria: {{ $category->name }}
+            Autore: {{ $user->name }}
         </h1>
     </div>
 </div>
@@ -24,7 +24,8 @@
                 data="{{ $article->created_at->format('d/m/Y') }}"
                 user="{{ $article->user->name }}"
                 url="{{ route('article.show', compact('article'))}}"
-                urlCategory="{{route('article.by_Category' , ['category' => $article->category->id])}}"
+                urlCategory="{{ route('article.byCategory' , ['category' => $article->category->id]) }}"
+                urlAutore="{{ route('article.byUser' , ['user' => $article->user->id]) }}"
             />
         </div>
         @endforeach

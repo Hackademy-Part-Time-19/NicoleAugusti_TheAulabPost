@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth")->except('index', 'show');
+        $this->middleware('auth')->except('index', 'show');
     }    
 
     /**
@@ -25,8 +26,14 @@ class ArticleController extends Controller
 
     public function byCategory(Category $category)
     {
-        $articles=$category->articles()->orderby('created-at', 'desc')->get();
-        return view('article.by_category', compact('category','articles'));
+        $articles=$category->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.byCategory', compact('category','articles'));
+    }
+
+    public function byUser (User $user)
+    {
+        $articles=$user->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.byUser', compact('user','articles'));
     }
 
     /**
@@ -55,11 +62,11 @@ class ArticleController extends Controller
             'subtitle'=> $request-> subtitle,
             'body'=> $request-> body,
             'image'=> $request-> file('image')->store ('public/images'),
-            'user_id'=> Auth::user()->id,
             'category_id'=> $request-> category,
+            'user_id'=> Auth::user()->id,
         ]);
 
-        return redirect (route('homepage'))->with('message', 'Articolo creato con succeso');
+        return redirect (route('homepage'))->with('message', 'Articolo creato con successo');
     }
 
     /**
