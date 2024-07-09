@@ -19,9 +19,19 @@
           <a class="nav-link" href="{{ route('careers')}}">Lavora con noi</a>
         </li>
         @auth
+        @if (Auth::user()->is_admin)
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.dashboard' )}}">Dashboard Admin</a> 
+          </li>
+        @endif
+        @if (Auth::user()->is_revisor)
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('revisor.dashboard' )}}">Dashboard Revisore</a> 
+          </li>
+        @endif
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Benvenuto {{ auth::user()->name }}
+            Benvenuto {{ Auth::user()->name }}
           </a>
           <ul class="dropdown-menu">
             <li class="nav-item">

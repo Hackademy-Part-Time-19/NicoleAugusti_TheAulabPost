@@ -20,13 +20,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles= Article::orderBy('created_at','desc')->get();
+        $articles= Article::where('is_accepted', true)->orderBy('created_at','desc')->get();
         return view ('article.index', compact('articles'));
     }
 
     public function byCategory(Category $category)
     {
-        $articles=$category->articles()->orderBy('created_at', 'desc')->get();
+        $articles=$category->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.byCategory', compact('category','articles'));
     }
 
@@ -66,7 +66,7 @@ class ArticleController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
 
-        return redirect (route('homepage'))->with('message', 'Articolo creato con successo');
+        return redirect (route('homepage'))->with('message', 'Articolo creato e pronto per essere revisionato.');
     }
 
     /**
