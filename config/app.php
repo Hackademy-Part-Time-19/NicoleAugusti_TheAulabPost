@@ -186,9 +186,12 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class,
-        /*
-         * Application Service Providers...
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
+
+         /* Application Service Providers...
          */
+        
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

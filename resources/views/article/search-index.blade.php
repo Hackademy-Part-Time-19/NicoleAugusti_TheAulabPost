@@ -3,16 +3,16 @@
 <div class= "container-fluid p-5 bg-info text-center text-white">
     <div class= "raw justify-content-center">
         <h1 class= "display-1">
-            Tutti gli articoli
+            Tutti gli articoli per: {{ $query }}
         </h1>
     </div>
 </div>
+
 <div class="container my-5">
     <div class=" row justify-content-center">
         @foreach ($articles as $article)
         <div class="col-12 col-md-3">
             <x-card
-                :tags="$article->tags"
                 title="{{ $article->title }}"
                 subtitle="{{ $article->subtitle }}"
                 image="{{ $article->image }}"
@@ -24,7 +24,6 @@
                 urlAutore="{{ route('article.byUser' , ['user' => $article->user->id]) }}"
             />
         </div>
-        
         @endforeach
     </div>
 </div>
