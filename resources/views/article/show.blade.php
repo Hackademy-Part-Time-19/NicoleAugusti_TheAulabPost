@@ -13,6 +13,13 @@
                 <img src="{{ Storage::url($article->image) }}" alt="immagine non disponibile" class="img-fluid my-3">   
                 <div>
                     <h2>{{ $article->subtitle }}</h2>
+                    @if ( $article->category)
+                        <a class=" small text-muted d-flex justify-content-center align-items-center">{{  $article->category->name }}</a>
+                    @else
+                        <p class="small text-muted fst-italic text-capitalize">
+                            Non categorizzato
+                        </p>
+                    @endif
                     <div class="my-3 text-muted fst-italic">
                         <p>Redatto da {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y')}} </p>
                     </div>

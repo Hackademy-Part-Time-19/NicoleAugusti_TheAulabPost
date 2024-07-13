@@ -29,6 +29,11 @@
           <a class="nav-link" href="{{ route('revisor.dashboard' )}}">Dashboard Revisore</a> 
           </li>
         @endif
+        @if (Auth::user()->is_writer)
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('writer.dashboard' )}}">Dashboard Redattore</a> 
+          </li>
+        @endif
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Benvenuto {{ Auth::user()->name }}
