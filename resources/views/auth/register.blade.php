@@ -1,12 +1,12 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-background-solo container-fluid p-5 bg-info text-center text-white">
         <div class="raw justify-content-center">
             <h1 class="display-1">
                 Registrati
             </h1>
         </div>
     </div>
-    <div class="container my-5">
+    <div class="container my-5 text-dashboard">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
                 @if ($errors->any())

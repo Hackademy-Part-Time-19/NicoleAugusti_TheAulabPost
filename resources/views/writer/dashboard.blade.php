@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-background-solo container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <h1 class="display-1">
                 Bentornato, Redattore
@@ -12,15 +12,15 @@
             {{ session('message') }}
         </div>
     @endif
-    <div class="container my-5">
-        <div class="row justify-content-center">
+    <div class="container my-5 text-dashboard">
+        <div class="row justify-content-center ">
             <div class="col-12">
                 <h2>Articoli in fase di revisione</h2>
                 <x-writer-articles-table :articles="$unrevisionedArticles"/>
             </div>
         </div>
     </div>
-    <div class="container my-5">
+    <div class="container my-5 text-dashboard">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Articoli pubblicati</h2>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="container my-5">
+    <div class="container my-5 text-dashboard">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Articoli respinti</h2>

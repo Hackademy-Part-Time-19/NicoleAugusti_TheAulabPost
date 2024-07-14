@@ -1,6 +1,6 @@
 <x-layout>
 
-<div class= "container-fluid p-5 bg-info text-center text-white">
+<div class= "container-background-solo container-fluid p-5 bg-info text-center text-white">
     <div class= "raw justify-content-center">
         <h1 class= "display-1">
             Autore: {{ $user->name }}
@@ -20,11 +20,11 @@
                 title="{{ $article->title }}"
                 subtitle="{{ $article->subtitle }}"
                 image="{{ $article->image }}"
-                category="{{ $article->category->name }}"
+                category="{{ $article->category ? $article->category->name : ''}}"
                 data="{{ $article->created_at->format('d/m/Y') }}"
                 user="{{ $article->user->name }}"
                 url="{{ route('article.show', compact('article'))}}"
-                urlCategory="{{ route('article.byCategory' , ['category' => $article->category->id]) }}"
+                urlCategory="{{ $article->category ? route('article.byCategory' , ['category' => $article->category->id]) : '' }}"
                 urlAutore="{{ route('article.byUser' , ['user' => $article->user->id]) }}"
             />
         </div>

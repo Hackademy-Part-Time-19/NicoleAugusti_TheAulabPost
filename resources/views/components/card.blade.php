@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card bg-gradient">
     <img src="{{ Storage::url($image) }}" alt="immagine non disponibile" class="card-img-top"></img>
     <div class="card-body">
         <h5 class="card-title">{{ $title }}</h5>
@@ -22,8 +22,7 @@
     </div>
     
     <div class="card-footer text-muted d-flex justify-content-center align-items-center">
-        Articolo del {{ $data }} 
-        Redatto da <a href="{{ $urlAutore }}">{{ $user }} </a>
-        <a href="{{ $url }}" class="btn btn-info text-white">Leggi</a>
-    </div>
+        <small class="text-muted">Articolo del {{ $data }} <br> Redatto da: <a href="{{ $urlAutore }}"> {{ $user }} </a></small>
+    </div> 
+    <a href="{{ $url }}" class="btn btn-info text-white">Leggi</a>
 </div>

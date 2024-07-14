@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
@@ -26,12 +27,30 @@ class ArticleController extends Controller
         return view ('article.index', compact('articles'));
     }
 
-    public function articleSearch(Request $request)
-    {
-        $query= $request->input('query');
-        $articles= Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
-        return view ('article.search-index', compact('articles' , 'query'));
+    public function articleSearch(Request $request){
+      $query = $request->input('query');
+    
+      $articles = Article::where('is_accepted', true)
+        ->where(function ($searchQuery) use ($query) {
+          $searchQuery->where('title', 'LIKE', '%' . $query . '%')
+                     ->orWhere('subtitle', 'LIKE', '%' . $query . '%')
+                     ->orWhere('body', 'LIKE', '%' . $query . '%')
+                     ->orWhereHas('category', function ($userQuery) use ($query) {
+                        $userQuery->where('name', 'LIKE', '%' . $query . '%');
+                      })                   
+                     ->orWhereHas('user', function ($userQuery) use ($query) {
+                       $userQuery->where('name', 'LIKE', '%' . $query . '%');
+                     });
+        })
+        ->orderBy('created_at', 'desc')
+        ->with('user') // Join tabella
+        ->with('category') // Join tabella
+        ->get();
+    
+      return view('article.search-index', compact('articles', 'query'));
     }
+    
+    
 
     public function byCategory(Category $category)
     {
@@ -59,8 +78,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=> 'required|unique:articles|min:5',
-            'subtitle'=> 'required|min:5',
+            'title'=> 'required|unique:articles|min:5|max:22',
+            'subtitle'=> 'required|min:5|max:22',
             'body'=> 'required|min:10',
             'image'=> 'image|required',
             'category'=> 'required',
@@ -115,8 +134,8 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title'=> 'required|min:5|unique:articles,title,'.$article->id,
-            'subtitle'=> 'required|min:5',
+            'title'=> 'required|min:5|max:22|unique:articles,title,'.$article->id,
+            'subtitle'=> 'required|min:5|max:22',
             'body'=> 'required|min:10',
             'image'=> 'image',
             'category'=> 'required',

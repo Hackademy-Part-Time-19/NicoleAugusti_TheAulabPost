@@ -1,7 +1,67 @@
 *{
-    font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navAndFoot{
+  background-color: #1f2247;
 }
 
 .paragrafoCard{
     word-wrap: break-word;
+}
+
+option{
+    background-color: lightblue;
+    color: darkblue;
+}
+
+.card-img-top {
+    object-fit: scale-down;  /* or object-fit: contain; */
+    height: 300px;     /* Set a fixed height for all images */
+}
+
+.container-background-solo{
+  background-image: url('..\assets\backgroundSolo_cleanup.PNG') ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;  
+}
+
+body{
+  background: rgb(87,87,93);
+  background: linear-gradient(90deg, rgba(87,87,93,1) 0%, rgba(73,72,83,1) 41%, rgba(56,104,123,1) 67%, rgba(0,212,255,1) 100%);
+}
+
+h1 {
+  font-family: "Tiny5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: midnightblue;
+}
+
+.title{
+  background: rgb(87,87,93);
+  background: linear-gradient(90deg, rgba(87,87,93,1) 0%, rgba(73,72,83,1) 41%, rgba(56,104,123,1) 67%, rgba(0,212,255,1) 100%);
+}
+
+.text-careers{
+  color: aliceblue;
+}
+
+.text-article{
+  font-family: "Montserrat", sans-serif;
+  color: aliceblue;
+}
+
+.text-dashboard{
+  color: aqua;
+}
+.text-dashboard:hover{
+  color: aqua;
+}
+.text-dashboard:focus{
+  color: aqua;
+}
+.text-dashboard:visited{
+  color: aqua;
 }
