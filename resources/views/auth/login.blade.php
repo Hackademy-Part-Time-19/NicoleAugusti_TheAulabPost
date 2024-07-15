@@ -1,8 +1,8 @@
 <x-layout>
-    <div class="container-background-solo container-fluid p-5 bg-info text-center text-white">
+    <div class="container-background-solo container-fluid p-5 bg-info text-center">
         <div class="raw justify-content-center">
             <h1 class="display-1">
-                Accedi
+                < Accedi >
             </h1>
         </div>
     </div>
@@ -19,19 +19,23 @@
                     </div>
                 @endif
 
-                <form class= "p-5 shadow" action="{{ route('login') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" name="email" class="form-control" id="email" value="{{old('email')}}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password:</label>
-                        <input type="password" name="password" class="form-control" id="password" value="{{old('password')}}">
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn bg-info text-white ">Accedi</button>
-                        <p class="small mt-2">Non sei registrato? <a href="{{ route('register') }}">Clicca qui</a></p>
+                <form class="container my-5 text-careers" action="{{ route('login') }}" method="POST">
+                    <div class=" row justify-content-center align-items-center border rounded p-2 shadow">
+                        @csrf
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" id="email" value="{{old('email')}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" name="password" class="form-control" id="password"
+                                value="{{old('password')}}">
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn bg-info text-white ">Accedi</button>
+                            <p class="small mt-2">Non sei registrato? <a href="{{ route('register') }}">Clicca qui</a>
+                            </p>
+                        </div>
                     </div>
                 </form>
 

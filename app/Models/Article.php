@@ -32,7 +32,7 @@ class Article extends Model
         $minutesToRead= round($totalWords / 200);
 
         return intval($minutesToRead);
-        }
+    }
 
     public function ToSearchableArray(){
         

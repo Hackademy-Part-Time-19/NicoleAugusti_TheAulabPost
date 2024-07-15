@@ -79,8 +79,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=> 'required|unique:articles|min:5|max:22',
-            'subtitle'=> 'required|min:5|max:22',
+            'title'=> 'required|unique:articles|min:5',
+            'subtitle'=> 'required|min:5',
             'body'=> 'required|min:10',
             'image'=> 'image|required',
             'category'=> 'required',
@@ -136,8 +136,8 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title'=> 'required|min:5|max:22|unique:articles,title,'.$article->id,
-            'subtitle'=> 'required|min:5|max:22',
+            'title'=> 'required|min:5|unique:articles,title,'.$article->id,
+            'subtitle'=> 'required|min:5',
             'body'=> 'required|min:10',
             'image'=> 'image',
             'category'=> 'required',

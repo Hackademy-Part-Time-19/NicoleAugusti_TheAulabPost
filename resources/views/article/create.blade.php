@@ -2,7 +2,7 @@
     <div class="container-background-solo container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <h1 class="display-1">
-                Inserisci un articolo
+                < Inserisci un articolo >
             </h1>
         </div>
     </div>
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('article.store') }}" method="POST" class="card p-5 shadow" enctype="multipart/form-data">
+                <form action="{{ route('article.store') }}" method="POST" class="text-careers border rounded p-5 shadow" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">

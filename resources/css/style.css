@@ -1,5 +1,28 @@
-*{
-  font-family: "Montserrat", sans-serif;
+/* Stili di base per le card */
+.col-12.col-md-3 {
+  width: 100%; /* Di default, le card occupano tutto lo spazio disponibile */
+  margin-bottom: 15px; /* Aggiungi un po' di spazio tra le card */
+}
+
+/* Media query per schermi piccoli (es. smartphone in portrait) */
+@media (min-width: 576px) {
+  .col-12.col-md-3 {
+    width: 50%; /* Due card per riga */
+  }
+}
+
+/* Media query per schermi medi (es. tablet) */
+@media (min-width: 768px) {
+  .col-12.col-md-3 {
+    width: 33.33%; /* Tre card per riga */
+  }
+}
+
+/* Media query per schermi grandi (es. desktop) */
+@media (min-width: 992px) {
+  .col-12.col-md-3 {
+    width: 25%; /* Quattro card per riga */
+  }
 }
 
 .navAndFoot{
@@ -15,16 +38,11 @@ option{
     color: darkblue;
 }
 
-.card-img-top {
-    object-fit: scale-down;  /* or object-fit: contain; */
-    height: 300px;     /* Set a fixed height for all images */
-}
-
 .container-background-solo{
   background-image: url('..\assets\backgroundSolo_cleanup.PNG') ;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;  
+  background-position: center;
 }
 
 body{
@@ -64,4 +82,37 @@ h1 {
 }
 .text-dashboard:visited{
   color: aqua;
+}
+
+.dropdown-toggle:hover{
+  color: blueviolet !important;
+}
+.dropdown-toggle:focus{
+  color: blueviolet !important;
+}
+
+.card-img-top {
+  object-fit: cover; /* Crop images to fit the container */
+  height: 200px; /* Set a fixed height for the image area */
+}
+.card-body {
+  overflow-y: auto; /* Add scrollbar if text overflows */
+  max-height: 200px; /* Limit the text area to the remaining height */
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.5); /* Bianco con opacitÃ  dell'80% */
+  height: 600px; /* Set a fixed height for all cards */
+}
+.card-img-top {
+  object-fit: scale-down;  /* or object-fit: contain; */
+  height: 300px;     /* Set a fixed height for all images */
+}
+.paragrafoCard{
+  word-wrap: break-word;
+}
+
+*{
+  font-family: "Montserrat", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #8b06e9 #0ddaf5;
 }

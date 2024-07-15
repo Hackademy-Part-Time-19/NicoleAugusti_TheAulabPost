@@ -1,8 +1,8 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-background-solo container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <h1 class="display-1">
-                Modifica un articolo
+                < Modifica articolo >
             </h1>
         </div>
     </div>
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('article.update', compact('article'))}}" method="post" class="card p-5 shadow" enctype="multipart/form-data">
+                <form action="{{ route('article.update', compact('article'))}}" method="post" class="text-careers border rounded p-5 shadow" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="mb-3">

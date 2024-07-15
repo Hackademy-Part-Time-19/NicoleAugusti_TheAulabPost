@@ -3,7 +3,7 @@
 <div class= "container-background-solo container-fluid p-5 bg-info text-center text-white">
     <div class= "raw justify-content-center">
         <h1 class= "display-1">
-            Categoria: {{ $category->name }}
+            < Categoria: {{ $category->name }} >
         </h1>
     </div>
 </div>
@@ -27,6 +27,7 @@
                 url="{{ route('article.show', compact('article'))}}"
                 urlCategory="{{ $article->category ? route('article.byCategory' , ['category' => $article->category->id]) : '' }}"
                 urlAutore="{{ route('article.byUser' , ['user' => $article->user->id]) }}"
+                readDuration="{{ $article->readDuration() }}"
             />
         </div>
         @endforeach

@@ -50,7 +50,7 @@
         @endauth
         @guest
         <li class="nav-item dropdown text-dashboard">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-dashboard" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Benvenuto ospite
           </a>
           <ul class="dropdown-menu">

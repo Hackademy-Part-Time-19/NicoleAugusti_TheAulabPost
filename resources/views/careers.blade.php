@@ -3,7 +3,7 @@
 <div class= "container-background-solo container-fluid p-5 bg-info text-center text-white">
     <div class= "row justify-content-center">
         <h1 class= "display-1">
-            Lavora con noi
+            < Lavora con noi >
         </h1>
     </div>
 </div>
@@ -11,11 +11,11 @@
     <div class=" row justify-content-center align-items-center border rounded p-2 shadow">
         <div class="col-12 col-md-6">
             <h2>Lavora come amministratore</h2>
-            <p> Questa posizione fa per te se cerchi di tenere sempre tutto sotto controllo.</p>
+            <p>Controlla le richieste della sezione "lavora con noi", i tag e categorie degli articoli della piattaforma.</p>
             <h2>Lavora come revisore</h2>
-            <p> Questa posizione fa per te se ami correggere sempre tutti.</p>
+            <p>Controlla gli articoli scritti e decidi se possono essere pubblicati in piattaforma.</p>
             <h2>Lavora come redattore</h2>
-            <p>La posizione giusta se sei appassionato di giornalismo e ami scrivere.</p>
+            <p>Se sei appassionato di giornalismo e ami scrivere, fai sicuramente al caso nostro.</p>
         </div>
         <div class="col-12 col-md-6">
         @if ($errors->any())
